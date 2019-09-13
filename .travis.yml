@@ -1,18 +1,11 @@
 language : angular_js
 angular_js:
   - 1.1.0
-  cache : yarn
+  
+  before_script:
+  -composer install --no-interaction
 
-  install:
-    -yarn ci
+  script:
+  - test/hungry
 
-    script:
-      -yarn test
-      - yarn run built
-
-      deploy:
-        provider: pages
-        skip-cleanup : true
-        github-token: 
-        on:
-          branch: gh-pages
+  
